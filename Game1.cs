@@ -13,7 +13,6 @@ namespace Break_Out
 
         private Texture2D _whiteRectangle;
         private Texture2D _whitePlatform;
-        //private Texture2D _basketball;
         private double _xRectangle = 0;
         private double _yRectangle = 0;
         private double _xPlatform = 0;
@@ -39,7 +38,6 @@ namespace Break_Out
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
 
             base.Initialize();
         }
@@ -52,12 +50,10 @@ namespace Break_Out
             _whitePlatform = new Texture2D(GraphicsDevice, 1, 1);
             _whiteRectangle.SetData(new[] { Color.White });
             _whitePlatform.SetData(new[] { Color.White });
-            //_basketball = Content.Load<Texture2D>("basketball-png-26241");
             _soundbeep4 = Content.Load<SoundEffect>("beep4");
             _soundbeep7 = Content.Load<SoundEffect>("beep7");
 
             _font = Content.Load<SpriteFont>("File");
-            // TODO: use this.Content to load your game content here
         }
 
         protected override void Update(GameTime gameTime)
@@ -65,7 +61,6 @@ namespace Break_Out
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
             _xRectangle += _speedX;
             _yRectangle += _speedY;
 
@@ -99,14 +94,6 @@ namespace Break_Out
             var mouseState = Mouse.GetState();
             _xPlatform = mouseState.X;
             
-            
-            /*
-            if(_speedX > 0)
-                width++;
-
-            if (_speedX < 0)
-                width--;
-            */
 
             base.Update(gameTime);
         }
@@ -116,7 +103,6 @@ namespace Break_Out
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _spriteBatch.Begin();
 
-            // TODO: Add your drawing code here
 
             var rectangle = new Rectangle((int)_xRectangle, (int)_yRectangle, width, height);
             _spriteBatch.Draw(_whiteRectangle, rectangle, Color.Plum);
